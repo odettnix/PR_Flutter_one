@@ -3,11 +3,10 @@
 ### *"Meditate"* - flutter-приложение, состоящее из трех окон.
 ### Для реализации данного проекта использовался язык программирования dart.
 
-* [Ссылка на сайт Git Pages](https://odettnix.github.io/mesto/)
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+![image](https://user-images.githubusercontent.com/80402777/191964061-10a01a74-aeea-4b62-94af-ecd005c082ac.png)
+![image](https://user-images.githubusercontent.com/80402777/191964124-a049bc9d-4ea8-4f6d-b160-4b32c9db47fe.png)
+![image](https://user-images.githubusercontent.com/80402777/191964227-c6af180c-8264-47e1-bfd7-876e3cabf80a.png)
 
-### В ходе выполнения данной учебной работы были испольованы: flex- и grid- верстка.
-### Файловая структура сделана по БЭМ и организована в Nested-структуре.
-### Данный проект - *адаптивынй*, поэтому он *корректно отображается* на экранах популярных размеров.
-### Был использован *javascript* для редактирования профиля пользователя: можно изменять поля с именем и допольнительной информацией о себе.
+
+
 
