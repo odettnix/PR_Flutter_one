@@ -633,7 +633,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
                
               
               Padding(
-                padding: const EdgeInsets.only(top: 15.0, left: 36.0),
+                padding: const EdgeInsets.only(top: 15.0, left: 27.0),
                 child: SvgPicture.asset("assets/im_one.svg"),
               ),
              
