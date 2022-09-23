@@ -57,13 +57,16 @@ class _MeditateTwoState extends State<MeditateTwo> {
                 ),
               ),
             ),
-            Row(
+            
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
               children: <Widget>[
                 Container(
                  margin: const EdgeInsets.only(left: 23.0),
               ),
 
-                ElevatedButton(
+              ElevatedButton(
                   style: ElevatedButton.styleFrom(
                   primary: const Color(0xff039EA2), 
                   onPrimary: Colors.black,
@@ -158,21 +161,68 @@ class _MeditateTwoState extends State<MeditateTwo> {
                 ),),
                 ),
 
+                Container(
+                 margin: const EdgeInsets.only(left: 12.0),
+              ),
+
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                  primary: const Color(0xffE6FEFF), 
+                  onPrimary: Colors.black,
+                  shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20), 
+                  
+                  ),
+                  minimumSize: Size.zero,
+                  padding: const EdgeInsets.fromLTRB(11, 17.5, 11, 17.5),
+
+                  elevation: 0,
+                  ),
+                  onPressed: () { },
+                  child: const Text('November', style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff039EA2),
+                ),),
+                ),
+
                 
+              
               ]
+
+                
+              ),
+                    
+
+                
             ),
 
             Container(
                  margin: const EdgeInsets.only(top: 22.0),
               ),
 
-             Stack(
+              Container(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  margin: const EdgeInsets.only(left: 24.0, right: 24.0),
+                
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius:
+                  BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 0,
+                      blurRadius: 0,
+                      offset: const Offset(0, 0.7))
+                      ]),
+                      child: Column(
+                        children: [
+                           Stack(
               children: <Widget>[
               SvgPicture.asset("assets/fon_sun.svg"),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 5.0, left: 46),
-                child: SvgPicture.asset("assets/sun.svg"),
-              )
+              SvgPicture.asset("assets/sun.svg"),
+              
               ],
             ),
 
@@ -181,7 +231,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                margin: const EdgeInsets.only(left: 36.0),
+                margin: const EdgeInsets.only(left: 12.0),
                 alignment: Alignment.topLeft,
                 child: const Text('A Song of Moon', style: TextStyle(
                   fontSize: 20,
@@ -190,7 +240,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                margin: const EdgeInsets.only(left: 36.0),
+                margin: const EdgeInsets.only(left: 12.0),
                 alignment: Alignment.topLeft,
                 child: const Text('Start with the basics', style: TextStyle(
                   fontSize: 16,
@@ -204,7 +254,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               Row(
                 children: <Widget>[
                   Container(
-                 margin: const EdgeInsets.only(left: 36.0),
+                 margin: const EdgeInsets.only(left: 8.0),
               ),
               IconButton(
                     padding: EdgeInsets.zero,
@@ -237,37 +287,46 @@ class _MeditateTwoState extends State<MeditateTwo> {
                 ]
               ),
 
-              Container(
-                width: 342,
-                height: 10,
-                decoration: const BoxDecoration(
-                
-                border:  Border(
-                  bottom: BorderSide(
-                    color: Color(0xffEBEBEB),
-                    width: 0.5),
-                    
-                ),
-              ),
-              ),
+              
+                        ],
+                      ),
+                      ),
+
+            
 
               Container(
                  margin: const EdgeInsets.only(top: 17.0),
               ),
 
+              
+
               Row(
                 children: <Widget>[
-                  Column(
+
+                  Container(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  margin: const EdgeInsets.only(left: 24.0),
+                
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius:
+                  BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 0,
+                      blurRadius: 0,
+                      offset: const Offset(0, 0.7))
+                      ]),
+                      child:  Column(
                     children: <Widget>[
                        Stack(
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 24.0),
-                  child: SvgPicture.asset("assets/fon_orange.svg", ),
-                ),
+                  SvgPicture.asset("assets/fon_orange.svg", ),
+                
               
               Padding(
-                padding: const EdgeInsets.only(top: 15.0, left: 49.0),
+                padding: const EdgeInsets.only(top: 15.0, left: 25.0),
                 child: SvgPicture.asset("assets/im_one.svg"),
               ),
              
@@ -278,7 +337,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                margin: const EdgeInsets.only(right: 5.0),
+                margin: const EdgeInsets.only(right: 35.0),
                 alignment: Alignment.topLeft,
                 child: const Text('The Sleep Hour', style: TextStyle(
                   fontSize: 16,
@@ -287,7 +346,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                margin: const EdgeInsets.only(right: 12.0),
+                margin: const EdgeInsets.only(right: 50.0),
                 alignment: Alignment.topLeft,
                 child: const Text('Ashna Mukherjee', style: TextStyle(
                   fontSize: 13,
@@ -301,9 +360,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
 
               Row(
                 children: <Widget>[
-                  Container(
-                 margin: const EdgeInsets.only(right: 25.0),
-              ),
+                
               
                   SvgPicture.asset("assets/heart.svg", width: 7.5, height: 6.67,),
                   Container(
@@ -327,35 +384,42 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               SvgPicture.asset("assets/forward_black.svg"),
+                Container(
+                 margin: const EdgeInsets.only(right: 10.0),
+              ),
               
                 ]
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 26.0),
-                width: 165,
-                height: 10,
-                decoration: const BoxDecoration(
-                
-                border:  Border(
-                  bottom: BorderSide(
-                    color: Color(0xffEBEBEB),
-                    width: 0.5),
-                    
-                ),
-              ),
-              ),
+              
 
                     ]
                   ),
+                      ),
+                 
 
-                   Column(
+                  Container(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  margin: const EdgeInsets.only(left: 8.0),
+                
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius:
+                  BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 0,
+                      blurRadius: 0,
+                      offset: const Offset(0, 0.7))
+                      ]),
+                      
+                      child: Column(
                     children: <Widget>[
                        Stack(
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: SvgPicture.asset("assets/fon_yellow.svg"),
-                ),
+                
+                SvgPicture.asset("assets/fon_yellow.svg"),
+                
               
               Padding(
                 padding: const EdgeInsets.only(left: 18.0),
@@ -369,7 +433,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                margin: const EdgeInsets.only(left: 12.0),
+                margin: const EdgeInsets.only(left: 5.0),
                 alignment: Alignment.topLeft,
                 child: const Text('Easy on the Mission', style: TextStyle(
                   fontSize: 16,
@@ -378,7 +442,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                margin: const EdgeInsets.only(right: 62.0),
+                margin: const EdgeInsets.only(right: 75.0),
                 alignment: Alignment.topLeft,
                 child: const Text('Peter Mach', style: TextStyle(
                   fontSize: 13,
@@ -392,9 +456,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
 
               Row(
                 children: <Widget>[
-                  Container(
-                 margin: const EdgeInsets.only(left: 10.0),
-              ),
+                  
 
                     SvgPicture.asset("assets/heart.svg", width: 7.5, height: 6.67,),
                   
@@ -419,26 +481,19 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               SvgPicture.asset("assets/forward_black.svg"),
+
+              
               
                 ]
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 10.0),
-                width: 165,
-                height: 10,
-                decoration: const BoxDecoration(
-                
-                border:  Border(
-                  bottom: BorderSide(
-                    color: Color(0xffEBEBEB),
-                    width: 0.5),
-                    
-                ),
-              ),
-              ),
+              
 
                     ]
                   ),
+
+                      ),
+
+                   
 
                   
                  
@@ -448,20 +503,39 @@ class _MeditateTwoState extends State<MeditateTwo> {
                     margin: const EdgeInsets.only(top: 17.0),
                   ),
 
+
+                 
+
               Row(
                 children: <Widget>[
-                  
-                  Column(
+
+                  Container(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  margin: const EdgeInsets.only(left: 24.0),
+                
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius:
+                  BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 0,
+                      blurRadius: 0,
+                      offset: const Offset(0, 0.7))
+                      ]),
+
+                      child: Column(
                     children: <Widget>[
                        Stack(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(left: 24.0),
+                  padding: const EdgeInsets.only(left: 0.0),
                   child: SvgPicture.asset("assets/fon_blue_two.svg", ),
                 ),
               
               Padding(
-                padding: const EdgeInsets.only(top: 15.0, left: 43.73),
+                padding: const EdgeInsets.only(top: 15.0, left: 19.73),
                 child: SvgPicture.asset("assets/planeta.svg"),
               ),
              
@@ -472,7 +546,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                margin: const EdgeInsets.only(right: 17.0),
+                margin: const EdgeInsets.only(right: 40.0),
                 alignment: Alignment.topLeft,
                 child: const Text('Relax with Me', style: TextStyle(
                   fontSize: 16,
@@ -481,7 +555,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                margin: const EdgeInsets.only(right: 25.0),
+                margin: const EdgeInsets.only(right: 60.0),
                 alignment: Alignment.topLeft,
                 child: const Text('Amanda James', style: TextStyle(
                   fontSize: 13,
@@ -495,9 +569,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
 
               Row(
                 children: <Widget>[
-                  Container(
-                 margin: const EdgeInsets.only(right: 32.0),
-              ),
+                  
                   SvgPicture.asset("assets/heart.svg", width: 7.5, height: 6.67,),
                   Container(
                     margin: const EdgeInsets.only(left: 4, right: 34),
@@ -520,35 +592,45 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               SvgPicture.asset("assets/forward_black.svg"),
+              Container(
+                 margin: const EdgeInsets.only(right: 10.0),
+              ),
               
                 ]
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 26.0),
-                width: 165,
-                height: 10,
-                decoration: const BoxDecoration(
-                
-                border:  Border(
-                  bottom: BorderSide(
-                    color: Color(0xffEBEBEB),
-                    width: 0.5),
-                    
-                ),
-              ),
-              ),
+              
 
                     ]
                   ),
+                      
+                ),
+                  
+                  
+              
 
-                   Column(
+                Container(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  margin: const EdgeInsets.only(left: 8.0),
+                
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius:
+                  BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 0,
+                      blurRadius: 0,
+                      offset: const Offset(0, 0.7))
+                      ]),
+
+                      child:  Column(
                     children: <Widget>[
                        Stack(
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: SvgPicture.asset("assets/fon_green.svg"),
-                ),
+                
+              SvgPicture.asset("assets/fon_green.svg"),
+               
               
               Padding(
                 padding: const EdgeInsets.only(top: 15.0, left: 36.0),
@@ -562,7 +644,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                margin: const EdgeInsets.only(right: 20.0),
+                margin: const EdgeInsets.only(right: 35.0),
                 alignment: Alignment.topLeft,
                 child: const Text('Sun and Energy', style: TextStyle(
                   fontSize: 16,
@@ -571,7 +653,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                margin: const EdgeInsets.only(right: 60.0),
+                margin: const EdgeInsets.only(right: 85.0),
                 alignment: Alignment.topLeft,
                 child: const Text('Micheal Hiu', style: TextStyle(
                   fontSize: 13,
@@ -583,11 +665,11 @@ class _MeditateTwoState extends State<MeditateTwo> {
                  margin: const EdgeInsets.only(top: 5),
               ),
 
+
+              
               Row(
                 children: <Widget>[
-                  Container(
-                 margin: const EdgeInsets.only(left: 15.0),
-              ),
+                 
                   SvgPicture.asset("assets/heart.svg", width: 7.5, height: 6.67,),
                   Container(
                     margin: const EdgeInsets.only(left: 4, right: 41),
@@ -600,7 +682,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
               ),
 
               Container(
-                    margin: const EdgeInsets.only(right: 4.82),
+                    margin: const EdgeInsets.only(right: 4.82,),
                     alignment: Alignment.topLeft,
                     child: const Text('Start', style: TextStyle(
                       fontSize: 12,
@@ -608,35 +690,52 @@ class _MeditateTwoState extends State<MeditateTwo> {
                       color: Color.fromARGB(255, 124, 124, 124)
                   ),),
               ),
+              
 
               SvgPicture.asset("assets/forward_black.svg"),
+              Container(
+                 margin: const EdgeInsets.only(right: 10.0),
+              ),
+              
               
                 ]
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 10.0),
-                width: 165,
-                height: 10,
-                decoration: const BoxDecoration(
+              
+
+              
+              // Container(
+              //   margin: const EdgeInsets.only(left: 10.0),
+              //   width: 165,
+              //   height: 10,
+              //   decoration: const BoxDecoration(
                 
-                border:  Border(
-                  bottom: BorderSide(
-                    color: Color(0xffEBEBEB),
-                    width: 0.5),
+              //   border:  Border(
+              //     bottom: BorderSide(
+              //       color: Color(0xffEBEBEB),
+              //       width: 0.5),
                     
-                ),
-              ),
-              ),
+              //   ),
+              // ),
+              // ),
 
                     ]
                   ),
+                      
+                ),
+
+                  
 
                   
                  
                 ],
               ),
+          ]
 
-              ]
+              
+
+              
+
+              
               ),
               
           
