@@ -10,7 +10,7 @@
 ### Второе окно - окно с подборкой тематических аудиозаписей. 
 ![image](https://user-images.githubusercontent.com/80402777/191964124-a049bc9d-4ea8-4f6d-b160-4b32c9db47fe.png)
 ### Третье окно - окно с блоками сессий. 
-![image](https://user-images.githubusercontent.com/80402777/191985712-72c964c0-825a-4e9c-8bea-baf6c95011be.png)
+![image](https://user-images.githubusercontent.com/80402777/191988853-41421117-7de4-4293-ae96-9d39c36a50f4.png)
 
 
 
