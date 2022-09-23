@@ -220,8 +220,12 @@ class _MeditateTwoState extends State<MeditateTwo> {
                         children: [
                            Stack(
               children: <Widget>[
+                
               SvgPicture.asset("assets/fon_sun.svg"),
-              SvgPicture.asset("assets/sun.svg"),
+              Padding(
+                padding: const EdgeInsets.only(left: 46.0),
+                child: SvgPicture.asset("assets/sun.svg"),
+              ),
               
               ],
             ),
@@ -700,6 +704,10 @@ class _MeditateTwoState extends State<MeditateTwo> {
               
                 ]
               ),
+
+           
+
+              
               
 
               
