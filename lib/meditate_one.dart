@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/meditate_two.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,8 +16,8 @@ class _MediateOneState extends State<MediateOne> {
     return  Scaffold(
       body: SingleChildScrollView(
         child: Container(
-      height: 849,
-      width: 390,
+       height: 866,
+      // width: 390,
       decoration: const BoxDecoration(
       color: Colors.white,
       ),
@@ -37,8 +38,10 @@ class _MediateOneState extends State<MediateOne> {
               ],
             ),
 
+            
+
             Container(
-              margin: const EdgeInsets.only(top: 15.0, left: 24.0),
+              margin: const EdgeInsets.only(top: 15.0, left: 36.0),
               alignment: Alignment.topLeft,
               child: const Text('Peter Mach', 
               textAlign: TextAlign.left,
@@ -51,7 +54,7 @@ class _MediateOneState extends State<MediateOne> {
             ),
 
             Container(
-              margin: const EdgeInsets.only(top: 3.0, left: 24.0),
+              margin: const EdgeInsets.only(top: 3.0, left: 36.0),
               alignment: Alignment.topLeft,
               child: const Text('Mind Deep Relax', 
               textAlign: TextAlign.left,
@@ -91,7 +94,9 @@ class _MediateOneState extends State<MediateOne> {
               padding: const EdgeInsets.fromLTRB(92.5, 20, 92.5, 20),
               elevation: 0,
               ),
-              onPressed: () { },
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MeditateTwo()));
+               },
               
               label: const Text('Play Next Session', style: TextStyle(
               fontSize: 17,

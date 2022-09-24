@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/meditate_one.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_svg/flutter_svg.dart';
 
 
 
-class Screen extends StatefulWidget {
-  const Screen({Key? key}) : super(key: key);
+class Meditate extends StatefulWidget {
+  const Meditate({Key? key}) : super(key: key);
 
   @override
-  State<Screen> createState() => _ScreenState();
+  State<Meditate> createState() => _MeditateState();
 }
 
-class _ScreenState extends State<Screen> {
+class _MeditateState extends State<Meditate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
       
-        height: 844,
-      width: 390,
+         height: 866,
+      // width: 390,
       decoration: const BoxDecoration(
       color: Color(0xff039EA2)
       ),
@@ -58,7 +59,9 @@ class _ScreenState extends State<Screen> {
             padding: const EdgeInsets.fromLTRB(103, 14, 103, 14),
             elevation: 0,
             ),
-            onPressed: () { },
+            onPressed: () { 
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const MediateOne()));
+            },
             child: const Text('Sign in with Apple', style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,

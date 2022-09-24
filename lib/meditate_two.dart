@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/meditate.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,8 +17,9 @@ class _MeditateTwoState extends State<MeditateTwo> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          width: 390,
-          height: 997,
+          // width: 390,
+          
+           height: 997,
           decoration: const BoxDecoration(
             color: Colors.white,
           ),
@@ -79,7 +81,9 @@ class _MeditateTwoState extends State<MeditateTwo> {
 
                   elevation: 0,
                   ),
-                  onPressed: () { },
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Meditate()));
+                   },
                   child: const Text('All', style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
@@ -186,6 +190,10 @@ class _MeditateTwoState extends State<MeditateTwo> {
                 ),),
                 ),
 
+                Container(
+                 margin: const EdgeInsets.only(right: 23.0),
+              ),
+
                 
               
               ]
@@ -201,7 +209,10 @@ class _MeditateTwoState extends State<MeditateTwo> {
                  margin: const EdgeInsets.only(top: 22.0),
               ),
 
-              Container(
+              Center(
+                child: Column(
+                  children: [
+                    Container(
                   padding: const EdgeInsets.only(bottom: 10.0),
                   margin: const EdgeInsets.only(left: 24.0, right: 24.0),
                 
@@ -296,9 +307,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
                       ),
                       ),
 
-            
-
-              Container(
+                      Container(
                  margin: const EdgeInsets.only(top: 17.0),
               ),
 
@@ -309,7 +318,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
 
                   Container(
                   padding: const EdgeInsets.only(bottom: 10.0),
-                  margin: const EdgeInsets.only(left: 24.0),
+                  margin: const EdgeInsets.only(left: 34.0),
                 
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -503,6 +512,16 @@ class _MeditateTwoState extends State<MeditateTwo> {
                  
                 ],
               ),
+
+                      
+                  ],
+                ),
+              ),
+
+              
+            
+
+              
               Container(
                     margin: const EdgeInsets.only(top: 17.0),
                   ),
@@ -515,7 +534,7 @@ class _MeditateTwoState extends State<MeditateTwo> {
 
                   Container(
                   padding: const EdgeInsets.only(bottom: 10.0),
-                  margin: const EdgeInsets.only(left: 24.0),
+                  margin: const EdgeInsets.only(left: 34.0),
                 
                 decoration: BoxDecoration(
                   color: Colors.white,
