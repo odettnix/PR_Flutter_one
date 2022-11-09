@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/meditate_one.dart';
-import 'package:flutter_application_1/meditate_two.dart';
-import 'package:flutter_application_1/meditate.dart';
+import 'package:flutter_application_1/core/db/data_base_helper.dart';
+
 
 void main() {
+  DataBaseHelper.instance.init();
   runApp(const App());
+ 
 }
 
 class App extends StatelessWidget {
@@ -14,7 +15,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Meditate(),
+      //home: Meditate(),
     );
   }
 }
