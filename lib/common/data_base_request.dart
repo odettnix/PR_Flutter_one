@@ -6,6 +6,7 @@ abstract class DataBaseRequest{
   static String deleteTable(String table) => 'DROP TABLE $table' ;
   /// Поля таблицы: Название роли
   static const String tableRole = 'Role';
+  static const String tableAccount = 'Account';
 
   /// Таблица Пользователи
   ///
@@ -21,6 +22,7 @@ abstract class DataBaseRequest{
 
   static const List<String> tableList = [ 
     tableRole,
+    tableAccount,
     tableUser,
     tablePost,
     tableProduct,
@@ -31,6 +33,7 @@ abstract class DataBaseRequest{
     tableCustomer];
   static const List<String> createTableList =[
     _createTableRole,
+    _createTableAccount,
     _createTableUser,
     _createTablePost,
     _createTableProduct,
@@ -44,13 +47,16 @@ abstract class DataBaseRequest{
   static const String _createTableRole =
       'CREATE TABLE "$tableRole" ("id" INTEGER,"role" TEXT NOT NULL UNIQUE, PRIMARY KEY("id" AUTOINCREMENT))';
 
+  static const String _createTableAccount =
+      'CREATE TABLE "$tableAccount" ("id" INTEGER, "login" TEXT NOT NULL UNIQUE, "password" TEXT NOT NULL, "id_role" INTEGER NOT NULL, FOREIGN KEY("id_role") REFERENCES "Role"("id"), PRIMARY KEY("id"))';
+
         /// Запрос для создания таблицы Post
   static const String _createTablePost =
       'CREATE TABLE "$tablePost" ("id"	INTEGER,"postName" TEXT NOT NULL UNIQUE, PRIMARY KEY("id"))';
 
   /// Запрос для создания таблицы Users
   static const String _createTableUser =
-      'CREATE TABLE "$tableUser" ("id"	INTEGER,"login"	TEXT NOT NULL UNIQUE,"password"	TEXT NOT NULL, "name"	TEXT NOT NULL, "surname"	TEXT NOT NULL, "patronymic"	TEXT NULL, "email"	TEXT NOT NULL UNIQUE, "id_role" INTEGER, "id_post"	INTEGER, FOREIGN KEY("id_role") REFERENCES "Role"("id"),  FOREIGN KEY("id_post") REFERENCES "Post"("id"), PRIMARY KEY("id"))';
+      'CREATE TABLE "$tableUser" ("id"	INTEGER, "name"	TEXT NOT NULL, "surname"	TEXT NOT NULL, "patronymic"	TEXT NULL, "email"	TEXT NOT NULL UNIQUE, "id_post"	INTEGER,  FOREIGN KEY("id_post") REFERENCES "Post"("id"), PRIMARY KEY("id"))';
   
 
 

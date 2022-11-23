@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/db/data_base_helper.dart';
+import 'package:flutter_application_1/screens/admin.dart';
+import 'package:flutter_application_1/screens/signIn.dart';
+import 'package:flutter_application_1/screens/user.dart';
 
 
 void main() {
@@ -14,8 +17,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      home: SignIn(),
       debugShowCheckedModeBanner: false,
-      //home: Meditate(),
     );
   }
 }

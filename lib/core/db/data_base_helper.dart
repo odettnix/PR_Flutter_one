@@ -13,39 +13,51 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:path/path.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:crypto/crypto.dart';
+import 'dart:convert';
+
+import '../../data/model/account.dart';
+import '../../domain/entity/role_entity.dart';
 
 class DataBaseHelper{
   static final DataBaseHelper instance = DataBaseHelper._instance();
   DataBaseHelper._instance();
   late final Directory _appDocumentDirectory;
   late final String _pathDb;
-  late final Database database;
+  late final Database dataBase;
   int _version = 1 ;
 
+
+
+  // get dataBase => null;
+
   Future<void> init() async{
-    _appDocumentDirectory = 
+     _appDocumentDirectory =
         await path_provider.getApplicationDocumentsDirectory();
-    _pathDb = join(_appDocumentDirectory.path, 'booksstore.db');
-    if(Platform.isWindows || Platform.isMacOS || Platform.isLinux){
-       sqfliteFfiInit();
-      Database dbase = await databaseFactoryFfi.openDatabase(_pathDb, options: OpenDatabaseOptions(
-          onUpgrade: (db, oldVersion, newVersion) => onUpdateTable(db),
+
+    _pathDb = join(_appDocumentDirectory.path, 'BookStore.db');
+
+    if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
+      sqfliteFfiInit();
+      dataBase = await databaseFactoryFfi.openDatabase(
+        _pathDb,
+        options: OpenDatabaseOptions(
           version: _version,
           onCreate: (db, version) async {
             await onCreateTable(db);
-          }
-        )
+          },
+          onUpgrade: (db, oldVersion, newVersion) async {
+            await onUpdateTable(db);
+          },
+        ),
       );
-    }
-    else{
-      database = await openDatabase(
-        _pathDb,
-        version: _version,
-        onUpgrade: ((db, oldVersion, newVersion) => onUpdateTable(db)),
-        onCreate: (db, version) async {
-          await onCreateTable(db);
-        }
-      );
+    } else {
+      dataBase = await openDatabase(_pathDb, version: _version,
+          onCreate: (dataBase, version) async {
+        await onCreateTable(dataBase);
+      }, onUpgrade: (dataBase, oldVersion, newVersion) async {
+        await onUpdateTable(dataBase);
+      });
     }
   }
 
@@ -99,7 +111,7 @@ class DataBaseHelper{
 
       db.insert(DataBaseRequest.tableParty,Party(quantity: 100, dateOfReceipt: '08-08-2022', deliveryCost: 202020, id_product: 1, id_customer: 1, id_provider: 2).toMap());
 
-      db.insert(DataBaseRequest.tableUser,User(login: 'aaa', password: 'aaaa', name: 'Аркадий', surname: 'Аркаденко', patronymic: 'Аркадьевич', email: 'araara@gmail.com', id_role: 1, id_post: 4).toMap());
+      db.insert(DataBaseRequest.tableUser,User(name: 'Аркадий', surname: 'Аркаденко', patronymic: 'Аркадьевич', email: 'araara@gmail.com', id_post: 4).toMap());
 
       db.insert(DataBaseRequest.tableProduct,Product(productName: 'Tatakee!!', weight: 1, cost: 750, description: 'Капитан... А вы....слышали о море?.... Об этом огромном, почти бескрайнем озере, уходящем за горизонт?' , id_user: 1, id_ptoductType: 2).toMap());
       db.insert(DataBaseRequest.tableProduct,Product(productName: 'HEY!HEY!HEY!', weight: 1, cost: 790, description: 'Прощай, мой рай...' , id_user: 1, id_ptoductType: 3).toMap());
@@ -107,6 +119,8 @@ class DataBaseHelper{
       db.insert(DataBaseRequest.tableProduct,Product(productName: 'Папина дочка', weight: 1, cost: 790, description: 'Я хотел создать мир… где дети не будут плакать. Вот почему я стал шпионом' , id_user: 1, id_ptoductType: 3).toMap());
 
       db.insert(DataBaseRequest.tableCell,Cell(cellNumber: 1, id_party: 1).toMap());
+
+      db.insert(DataBaseRequest.tableAccount,Account(login: 'admin111',password: md5.convert(utf8.encode('admin111')).toString(),id_role: RoleEnum.admin.id,).toMap());
 
 
 
@@ -117,7 +131,7 @@ class DataBaseHelper{
   
 
   Future<void> onDropTable() async {
-    database.close();
+    dataBase.close();
     deleteDatabase(_pathDb);
   }
 
