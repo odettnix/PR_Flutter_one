@@ -19,11 +19,11 @@ class SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Container(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(25, 15, 25, 10),
+              padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
               child: Center(
                 child: Form(
                   key: key,
@@ -35,11 +35,17 @@ class SignUpState extends State<SignUp> {
                           if (value == null || value.isEmpty) {
                             return "Логин не должен быть пустым";
                           }
-                          if (value.length < 8) {
-                            return "Логин должен быть от 8 символов";
+                          if (value.length < 3) {
+                            return "Логин должен быть от 3 символов";
                           }
-                          if (value.length >= 16) {
-                            return "Логин должен быть до 16 символов";
+                          if (value.length >= 15) {
+                            return "Логин должен быть до 15 символов";
+                          }
+                          if (!(value.contains(RegExp(r'[A-Z]')) || value.contains(RegExp(r'[a-z]')))) {
+                            return "Логин должен содержать минимум латинскую букву";
+                          }
+                          if (!value.contains(RegExp(r'[0-9]'))) {
+                            return "Логин должен иметь хотя бы одну цифру";
                           }
                           return null;
                         }),
@@ -49,19 +55,26 @@ class SignUpState extends State<SignUp> {
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.fromLTRB(25, 5, 25, 20),
+                        padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
                       ),
                       TextFormField(
                         controller: controllerPassword,
+                        obscureText: true,
                         validator: ((value) {
                           if (value == null || value.isEmpty) {
                             return "Пароль не должен быть пустым";
                           }
-                          if (value.length < 8) {
-                            return "Пароль должен быть от 8 символов";
+                          if (value.length < 3) {
+                            return "Пароль должен быть от 3 символов";
                           }
-                          if (value.length >= 16) {
-                            return "Пароль должен быть до 16 символов";
+                          if (value.length >= 15) {
+                            return "Пароль должен быть до 15 символов";
+                          }
+                          if (!(value.contains(RegExp(r'[A-Z]')) || value.contains(RegExp(r'[a-z]')))) {
+                            return "Пароль должен содержать минимум одну латинскую букву";
+                          }
+                          if (!value.contains(RegExp(r'[0-9]'))) {
+                            return "Пароль должен иметь хотя бы одну цифру";
                           }
                           return null;
                         }),
@@ -76,7 +89,7 @@ class SignUpState extends State<SignUp> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(25, 5, 25, 10),
+              padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
               child: Center(
                 child: Column(
                   children: [
@@ -113,7 +126,7 @@ class SignUpState extends State<SignUp> {
                       child: const Text("Зарегистрироваться"),
                     ),
                     const Padding(
-                      padding: EdgeInsets.fromLTRB(25, 5, 25, 5),
+                      padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
                     ),
                     ElevatedButton(
                       onPressed: () {

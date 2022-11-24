@@ -16,7 +16,7 @@ enum RoleEnum {
     id: 2,
     role: 'Пользователь',
   ),
-  nobody(
+  emptyRole(
     id: 0,
     role: 'роль отсутстувет',
   );
