@@ -11,7 +11,7 @@
 ### Для создания нового Cubit надо нажать на папку lib и выбрать Cubit: new Cubit.
 ###  ![image](https://user-images.githubusercontent.com/80402777/205403708-2400da84-7b0e-46d1-bc94-ed1564de59ad.png)
 ### Рисунок 36 - создание cubit
-### Таким образом у нас автоматически создастся файл cubit и state
+### Таким образом у нас автоматически создадутся файлы cubit и state
 ###  ![image](https://user-images.githubusercontent.com/80402777/205403722-fc6bf70b-d863-47ff-98ba-f107fe867135.png)
 ### Рисунок 37 - созданные файлы
 ### Для данной практической работы необходимо создать следующие cubit:
