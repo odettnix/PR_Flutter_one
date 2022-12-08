@@ -1,16 +1,48 @@
-# newpr
+# ПРАКТИЧЕСКАЯ РАБОТА №5
+## Передача данных между экранами
+### Цель: реализовать передачу данных через параметр arguments и сохранение данных в SharedPrefrences, а также восстановление данных после закрытия приложения. Если есть данные в SharedPrefrences открыть 2 экран, если данных нет, то открыть 1 экран. Также реализовать восстановление темы приложения.
+### Ход работы:
+### На данной практической работе понадобятся следующие бибилотеки:
+### ![image](https://user-images.githubusercontent.com/80402777/206550279-7e2dfa41-5417-4f64-9bf9-7089d02a7155.png)
+### Рисунок 49 - библиотеки
+### Для передачи данных необходимо использовать SharedPreferences.
+### Создадим переменную _count, куда будем записывать результат записи SharedPreferences, также создадим переменную sharedPreferences и проинициализируем переменную:
+### ![image](https://user-images.githubusercontent.com/80402777/206550297-6e1be989-3553-44ff-9e97-defe27969580.png)
+### Рисунок 50 - SharedPreferences
+### Далее создадим метод initState, здесь мы будем получать значение sharePreferences и записывать в нашу переменную _counter. 
+### ![image](https://user-images.githubusercontent.com/80402777/206550319-3871432f-c2d7-42cf-b864-0c3969088070.png)
+### Рисунок 51 - запись
+### Запись в сам sharePreferences будем происходить в методе _incrementCounter, то есть при каждом сложении мы будет записывать в sharePreferences новое значение.
+### ![image](https://user-images.githubusercontent.com/80402777/206550337-04521c96-df2d-4e8d-b33a-8aa9375889be.png)
+### Рисунок 52 - запись
+### Создадим новый файл с именем Screen, создадим переменную count, в нее будут передаваться данные из основного окна. Также создадим кнопку для смены темы приложения.
+### ![image](https://user-images.githubusercontent.com/80402777/206550356-09795ed7-1c86-4434-a052-c8159e9926c6.png)
+### Рисунок 53 - screen.dart
+### Создадим новую кнопку в main.dart, при нажатии которой будем передавать значение из _counter на второе окно.
+### ![image](https://user-images.githubusercontent.com/80402777/206550380-24ddda58-ed1a-402f-b1bb-7df8e5efc662.png)
+### Рисунок 54 - переход на другое окно
+### Для смены темы создадим cubit, по аналогии с прошлой практической работы. 
+### Для записи темы в SharePreferences создадим в BrightnessCubit переменную sharePreferences, проинициализируем ее. Также создадим переменную, в которую будет записываться значение true или false. В случае, если thema равна true, тему будет светлой, в ином случае у нас будет темная тема.
+### ![image](https://user-images.githubusercontent.com/80402777/206550395-70942d6f-0dfa-4ee4-8082-80cacf59d87c.png)
+### Рисунок 55 - запись
+### Для того, что производилась запись данных в сам sharePreferences, дополним наш метод onClicklLight. В случае если тема светлая, в sharePreferences будет записываться true, в ином случае false. 
+### ![image](https://user-images.githubusercontent.com/80402777/206550752-66acf7f7-c9b5-46a4-a4a3-d4f54d2bc71c.png)
+### Рисунок 56 - запись в sharePreferences
+### Далее в main.dart в MultiBlockProvider дополним код, добавив init.
+### ![image](https://user-images.githubusercontent.com/80402777/206550767-4681fb71-3e88-42c3-a1b3-049e03fd75ee.png)
+### Рисунок 57 – MultiBlockProvider
+### Для того, чтобы у нас при запуске открывалось второе окно в случае, если в sharePreferences нет данных, нам необходимо добавить условие, проверяющее наличие данных. 
+### ![image](https://user-images.githubusercontent.com/80402777/206550829-9ec89c5f-4557-46a0-8ecd-94d44ec11667.png)
+### Рисунок 58 - проверка на наличие данных
+### Результат работы программы:
+### ![image](https://user-images.githubusercontent.com/80402777/206550845-a4760c95-f379-40f9-baf9-04231baf45db.png)
+### Рисунок 59 - главное окно, темная тема
+### ![image](https://user-images.githubusercontent.com/80402777/206550863-bb067605-b843-4511-8fdd-910442f7a6cc.png)
+### Рисунок 60 - главное окно, светлая тема
+### ![image](https://user-images.githubusercontent.com/80402777/206550877-b9102f98-bbcb-4b58-85c4-31f9d42b6b35.png)
+### Рисунок 61 - второе окно с переданными данными
+### При повторном запуске приложения у нас появится сразу второе окно со светлой темой. 
+### Вывод: на данной практической работы была реализована передача данных через параметр arguments и сохранение данных в SharedPrefrences, а также восстановление данных после закрытия приложения. Также было реализовать восстановление темы приложение и открытие второго окна  в случае, если SharedPrefrences уже содержит данные.
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
